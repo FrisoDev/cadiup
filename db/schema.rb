@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20171013083735) do
   create_table "categories_events", id: false, force: :cascade do |t|
     t.bigint "event_id", null: false
     t.bigint "category_id", null: false
+    t.index ["category_id", "event_id"], name: "index_categories_events_on_category_id_and_event_id"
+    t.index ["event_id", "category_id"], name: "index_categories_events_on_event_id_and_category_id"
   end
 
   create_table "events", force: :cascade do |t|
